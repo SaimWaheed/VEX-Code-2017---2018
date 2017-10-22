@@ -1,6 +1,6 @@
 #pragma config(Motor,  port2,           BLDT,          tmotorVex393_MC29, openLoop, driveLeft)
 #pragma config(Motor,  port3,           LOTLIT,        tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port4,           BRDT,          tmotorVex393_MC29, openLoop, driveLeft)
+#pragma config(Motor,  port4,           BRDT,          tmotorVex393_MC29, openLoop, driveRight)
 #pragma config(Motor,  port5,           ROTRIT,        tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           FLDT,          tmotorVex393_MC29, openLoop, driveLeft)
 #pragma config(Motor,  port7,           FRDT,          tmotorVex393_MC29, openLoop, driveRight)
