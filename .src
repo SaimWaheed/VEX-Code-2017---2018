@@ -29,7 +29,8 @@
 
 	else if (vexRT[Btn6D] == 1)
 		motor[LOTLIT] = motor[ROTRIT] = -127;
-		motor[LOTLIT] = motor[ROTRIT] = 15;
+		if (vexRT[Btn6D]0) != 10
+			motor[LOTLIT] = motor[ROTRIT] = 15;
 	else
 		motor[LOTLIT] = motor[ROTRIT] = 0;
 
