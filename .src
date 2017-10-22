@@ -9,9 +9,9 @@
 
 	task main()
 {
-	int placeholder = vexRT[Btn6D];
 	while(true)
 	{
+		int placeholder = vexRT[Btn6D];
 	//	motor[BLDT] = vexRT[Ch3];
 	//	motor[FLDT] = vexRT[Ch3];
 	//	motor[BRDT] = vexRT[Ch2];
@@ -27,11 +27,12 @@
 
 		if(vexRT[Btn6U] == 1)
 			motor[LOTLIT] = motor[ROTRIT] = 127;
-		else if (vexRT[Btn6D] == 1){
+		if (vexRT[Btn6D] == 1){
 			motor[LOTLIT] = motor[ROTRIT] = -127;
 			if placeholder != vexRT[Btn6D]{
-				placeholder = vexRT[Btn6D];
-				motor[LOTLIT] = motor[ROTRIT] = 15;}}
+				motor[LOTLIT] = motor[ROTRIT] = 15;
+			}
+		}
 		else
 			motor[LOTLIT] = motor[ROTRIT] = 0;
 
