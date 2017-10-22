@@ -31,7 +31,7 @@
 			motor[LOTLIT] = motor[ROTRIT] = -127;
 			if placeholder != vexRT[Btn6D]{
 				placeholder = vexRT[Btn6D];
-				motor[LOTLIT] = motor[ROTRIT] = 15;
+				motor[LOTLIT] = motor[ROTRIT] = 15;}}
 		else
 			motor[LOTLIT] = motor[ROTRIT] = 0;
 
