@@ -9,7 +9,7 @@
 
 	task main()
 	{
-		int liftState = 1 //variable to hold the state of the lift down button. set once here
+		int liftState = 1; //variable to hold the state of the lift down button. set once here
 		while(true)
 		{
 		//	motor[BLDT] = vexRT[Ch3];
@@ -31,10 +31,10 @@
 			if (vexRT[Btn6D] == 1){ //normal code for the lift to go down
 				motor[LOTLIT] = motor[ROTRIT] = -127;
 			}
-			if (vexRT[Btn6D]) != liftState{ //if state of button has changed since last iteration of while loop
+			if (vexRT[Btn6D] != liftState){ //if state of button has changed since last iteration of while loop
 				motor[LOTLIT] = motor[ROTRIT] = 15;
+				liftState = 1; //resets liftState;
 			}
-			liftState = (vexRT[Btn6D]); //resets liftState 
 			else
 				motor[LOTLIT] = motor[ROTRIT] = 0;
 
