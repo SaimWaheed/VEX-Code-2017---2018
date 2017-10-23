@@ -29,12 +29,13 @@
 				motor[LOTLIT] = motor[ROTRIT] = 127;
 
 			if (vexRT[Btn6D] == 1){ //normal code for the lift to go down
-				motor[LOTLIT] = motor[ROTRIT] = -127;
-			}
-			if (vexRT[Btn6D] != liftState){ //if state of button has changed since last iteration of while loop
+				motor[LOTLIT] = motor[ROTRIT] = -127;}
+			
+			if (liftState != vexRT[Btn6D] and vexRT[Btn6D] = 0){
 				motor[LOTLIT] = motor[ROTRIT] = 15;
-				liftState = 1; //resets liftState;
 			}
+			liftState = vexRT[Btn6D];	
+
 			else
 				motor[LOTLIT] = motor[ROTRIT] = 0;
 
