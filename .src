@@ -129,7 +129,7 @@ task autonomous()
     wait1Msec(100);
  
     //Add this iteration's encoder values to totalTicks.
-    totalTicks+= SensorValue[leftEncoder];
+    totalTicks+= SensorValue[EnconderL];
     if (Btn8R == 1){
     	break;
     }
