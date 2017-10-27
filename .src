@@ -103,10 +103,18 @@ task autonomous()
   int kp = 5;
   
   motor[Claw] = 100;
-	wait1Msec(1500);
+	wait1Msec(1500){
+	if (Btn8R == 1){
+    	break;
+    }
+	}
 	motor[Claw] = 0;
 	motor[ROTRIT] = motor[LOTLIT] = 127;
-	wait1Msec(3000);
+	wait1Msec(3000){
+	if (Btn8R == 1){
+    	break;
+    }
+	}
 	motor[ROTRIT] = motor[LOTLIT] = 0;
  
   SensorValue[EncoderL] = 0;
@@ -137,10 +145,17 @@ task autonomous()
   motor[BLDT] = motor[FLDT] = 0; // Stop the loop once the encoders have counted up the correct number of encoder ticks.
   motor[BRDT] = motor[FRDT] = 0;
   motor[Claw] = -100;
-	wait1Msec(1500);
+	wait1Msec(1500){
+	if (Btn8R == 1){
+    	break;
+    }
+	}
 	motor[Claw] = 0;
 	motor[ROTRIT] = motor[LOTLIT] = -127;
-	wait1Msec(3000);
+	while (wait1Msec(3000){
+	if (Btn8R == 1){
+    	break;
+    }}
 	motor[ROTRIT] = motor[LOTLIT] = 0;
   
 }
