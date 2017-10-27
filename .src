@@ -85,7 +85,8 @@ task autonomous()
 }
 */
 //http://www.robotc.net/wikiarchive/Tutorials/Arduino_Projects/Mobile_Robotics/VEX/Using_encoders_to_drive_straight helped create below autonomous code
-//Below Autonomous code makes robot pick up a cone, lift it, drive forward 4 feet, put it down, then let go and lift up 
+//Below Autonomous code makes robot pick up a cone, lift it, drive forward 4 feet, put it down, then let go and lift up
+if (vexRT[Btn8L==1]){
   int tenthsOfIn = 480;
   int tickGoal = (42 * tenthsOfIn) / 10;
   int masterPower = 100;
@@ -104,14 +105,14 @@ task autonomous()
   
   motor[Claw] = 100;
 	wait1Msec(1500){
-	if (Btn8R == 1){
+	if (vexRT[Btn8R == 1]){
     	break;
     }
 	}
 	motor[Claw] = 0;
 	motor[ROTRIT] = motor[LOTLIT] = 127;
 	wait1Msec(3000){
-	if (Btn8R == 1){
+	if (vexRT[Btn8R == 1]){
     	break;
     }
 	}
@@ -146,17 +147,18 @@ task autonomous()
   motor[BRDT] = motor[FRDT] = 0;
   motor[Claw] = -100;
 	wait1Msec(1500){
-	if (Btn8R == 1){
+	if (vexRT[Btn8R == 1]){
     	break;
     }
 	}
 	motor[Claw] = 0;
 	motor[ROTRIT] = motor[LOTLIT] = -127;
 	while (wait1Msec(3000){
-	if (Btn8R == 1){
+	if (vexRT[Btn8R == 1]){
     	break;
     }}
 	motor[ROTRIT] = motor[LOTLIT] = 0;
+}
   
 }
 task usercontrol()
