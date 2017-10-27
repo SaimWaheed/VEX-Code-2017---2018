@@ -55,7 +55,7 @@ void pre_auton()
 
 task autonomous()
 {
-	int rotationNumberL, rotationNumberR;
+/*	int rotationNumberL, rotationNumberR;
 	int rotationCountL = SensorValue[EncoderL];
 	int rotationCountR = SensorValue[EncoderR];
 	motor[Claw] = 100;
@@ -83,7 +83,67 @@ task autonomous()
 	
 		motor[FRDT] = 0;
 }
-
+*/
+//http://www.robotc.net/wikiarchive/Tutorials/Arduino_Projects/Mobile_Robotics/VEX/Using_encoders_to_drive_straight helped create below autonomous code
+//Below Autonomous code makes robot pick up a cone, lift it, drive forward 4 feet, put it down, then let go and lift up 
+  int tenthsOfIn = 480;
+  int tickGoal = (42 * tenthsOfIn) / 10;
+  int masterPower = 100;
+ 
+  //This will count up the total encoder ticks despite the fact that the encoders are constantly reset.
+  int totalTicks = 0;
+ 
+  //Initialise slavePower as masterPower - 5 so we don't get huge error for the first few iterations. The
+  //-5 value is based off a rough guess of how much the motors are different, which prevents the robot from
+  //veering off course at the start of the function.
+  int slavePower = masterPower - 5; 
+ 
+  int error = 0;
+ 
+  int kp = 5;
+  
+  motor[Claw] = 100;
+	wait1Msec(1500);
+	motor[Claw] = 0;
+	motor[ROTRIT] = motor[LOTLIT] = 127;
+	wait1Msec(3000);
+	motor[ROTRIT] = motor[LOTLIT] = 0;
+ 
+  SensorValue[EncoderL] = 0;
+  SensorValue[EncoderR] = 0;
+ 
+  //Monitor 'totalTicks', instead of the values of the encoders which are constantly reset.
+  while(abs(totalTicks) < tickGoal)
+  {
+    //Proportional algorithm to keep the robot going straight.
+    motor[BLDT] = motor[FLDT] = masterPower;
+    motor[BRDT] = motor[FRDT] = slavePower;
+ 
+    error = SensorValue[EncoderL] - SensorValue[EncoderR];
+ 
+    slavePower += error / kp;
+ 
+    SensorValue[EncoderL] = 0;
+    SensorValue[EncoderR] = 0;
+ 
+    wait1Msec(100);
+ 
+    //Add this iteration's encoder values to totalTicks.
+    totalTicks+= SensorValue[leftEncoder];
+    if (Btn8R == 1){
+    	break;
+    }
+  }
+  motor[BLDT] = motor[FLDT] = 0; // Stop the loop once the encoders have counted up the correct number of encoder ticks.
+  motor[BRDT] = motor[FRDT] = 0;
+  motor[Claw] = -100;
+	wait1Msec(1500);
+	motor[Claw] = 0;
+	motor[ROTRIT] = motor[LOTLIT] = -127;
+	wait1Msec(3000);
+	motor[ROTRIT] = motor[LOTLIT] = 0;
+  
+}
 task usercontrol()
 {
 	while(true)
