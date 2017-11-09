@@ -217,3 +217,78 @@ task usercontrol()
 		motor[Claw] = 0;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*	int rotationNumberL, rotationNumberR;
+	int rotationCountL = SensorValue[EncoderL];
+	int rotationCountR = SensorValue[EncoderR];
+	motor[Claw] = 100;
+	wait1Msec(1500);
+	motor[Claw] = 0;
+	motor[ROTRIT] = motor[LOTLIT] = 127;
+	wait1Msec(3000);
+	motor[ROTRIT] = motor[LOTLIT] = 0;
+  while ()
+  {rotationCountL < rotationNumberL && rotationCountR < rotationNumberR
+  	motor[BLDT] = 100;
+	
+		motor[FLDT] = 100;
+	
+		motor[BRDT] = 100;
+	
+		motor[FRDT] = 100;
+	
+	}
+  	motor[BLDT] = 0;
+	
+		motor[FLDT] = 0;
+	
+		motor[BRDT] = 0;
+	
+		motor[FRDT] = 0;
+}
+*/
+//http://www.robotc.net/wikiarchive/Tutorials/Arduino_Projects/Mobile_Robotics/VEX/Using_encoders_to_drive_straight helped create below autonomous code
+//Below Autonomous code makes robot pick up a cone, lift it, drive forward 4 feet, put it down, then let go and lift up
