@@ -118,7 +118,22 @@ if( vexRT[Btn6D] == 1) // Check if the absolute value of the input of Channel 2 
 
 if( vexRT[Btn6U]==0 && vexRT[Btn6D] == 0 )// If the value of Channel 2 (Ch2) is not greater than 20 (thld)
 			motor[mgmLeft] = motor[mgmRight] = 0;// Make the Back-Right-Drive-Train (BRDT) equal to the Forward-Right-Drive-Train (FRDT) and set them equal to 0 speed
+if( vexRT[Btn5U] == 1) // Check if the absolute value of the input of Channel 2 (Ch2) is greater than 20 (thld)
+			motor[TM] = 127; // If it is, make the Back-Right-Drive-Train (BRDT) equal to the Forward-Right-Drive-Train and set them equal to the speed of Channel 2 (Ch2)
 
+if( vexRT[Btn5D] == 1) // Check if the absolute value of the input of Channel 2 (Ch2) is greater than 20 (thld)
+			motor[TM] = -127; // If it is, make the Back-Right-Drive-Train (BRDT) equal to the Forward-Right-Drive-Train and set them equal to the speed of Channel 2 (Ch2)
+
+if( vexRT[Btn5U]==0 && vexRT[Btn5D] == 0 )// If the value of Channel 2 (Ch2) is not greater than 20 (thld)
+			motor[TM] = 0;
+if( vexRT[Btn7U] == 1) // Check if the absolute value of the input of Channel 2 (Ch2) is greater than 20 (thld)
+			motor[Claw] =  127; // If it is, make the Back-Right-Drive-Train (BRDT) equal to the Forward-Right-Drive-Train and set them equal to the speed of Channel 2 (Ch2)
+
+if( vexRT[Btn7D] == 1) // Check if the absolute value of the input of Channel 2 (Ch2) is greater than 20 (thld)
+			motor[Claw] = -127; // If it is, make the Back-Right-Drive-Train (BRDT) equal to the Forward-Right-Drive-Train and set them equal to the speed of Channel 2 (Ch2)
+
+if( vexRT[Btn7U]==0 && vexRT[Btn7D] == 0 )// If the value of Channel 2 (Ch2) is not greater than 20 (thld)
+			motor[Claw] = 0;
  // ----------------- End Of Left Drive Train -- Start Of Right Drive Train ---------------------------------------------------------------------------------------------------------------------------------
 			}
 }
