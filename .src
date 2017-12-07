@@ -83,7 +83,7 @@ task usercontrol()
 		if( vexRT[Btn6U] == 1) //Code to control Mobile Goal Manipulator. Right side Rear buttons.
 			motor[mgmLeft] = motor[mgmRight] = 127;
 		if ( vexRT[Btn6D] == 1)
-			motor[mgmLeft] = motor[mgmRight] = -127;
+			motor[mgmLeft] = motor[mgmRight] = -63;
 		if( vexRT[Btn6U]==0 && vexRT[Btn6D] == 0 )
 			motor[mgmLeft] = motor[mgmRight] = 0;
 
@@ -92,8 +92,8 @@ task usercontrol()
 			motor[TM] = 127;
 		if( vexRT[Btn5D] == 1)
 			motor[TM] = -127;
-		if( vexRT[Btn5U]==0 && vexRT[Btn5D] == 0 )
-			motor[TM] = 0;
+		if( vexRT[Btn5U] == 0 && vexRT[Btn5D] == 0 )
+			motor[TM] = 7;
 
 
 		if( vexRT[Btn7U] == 1) // code to control claw. left side front buttons.
